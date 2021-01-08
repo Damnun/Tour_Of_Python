@@ -1,6 +1,4 @@
-add = 0
-for i in range(1,11):
-    add += i
-    print(add)
-    
-print(add)
+result = 0
+for i in range(1, 101):
+    result += i
+print(result)
