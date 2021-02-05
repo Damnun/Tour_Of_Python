@@ -3,22 +3,24 @@
 from enum import Enum
 from chained_hash import ChainedHash
 
-Menu = Enum('Menu', ['추가', '삭제', '검색', '덤프', '종료']) # 메뉴를 선언
+Menu = Enum('Menu', ['추가', '삭제', '검색', '덤프', '종료'])  # 메뉴를 선언
+
 
 def select_menu() -> Menu:
     """메뉴 선택"""
     s = [f'({m.value}){m.name}' for m in Menu]
     while True:
-        print(*s, sep = '   ', end='')
+        print(*s, sep='   ', end='')
         n = int(input(': '))
         if 1 <= n <= len(Menu):
             return Menu(n)
+
 
 hash = ChainedHash(13)
 
 while True:
     menu = select_menu()    # 메뉴 선택
-    
+
     if menu == Menu.추가:    # 추가
         key = int(input('추가할 키를 입력하세요 : '))
         val = input('추가할 값을 입력하세요 : ')
@@ -40,6 +42,6 @@ while True:
 
     elif menu == Menu.덤프:    # 덤프
         hash.dump()
-        
+
     else:
         break
